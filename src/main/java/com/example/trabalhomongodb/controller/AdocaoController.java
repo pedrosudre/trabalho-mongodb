@@ -27,7 +27,7 @@ public class AdocaoController {
     }
 
     @PostMapping("/adocoes")
-    public Adocao solicitarAdocao(@RequestParam String animalId, @RequestParam String solicitanteId) {
+    public Adocao solicitarAdocao(@RequestParam String animalId, @RequestParam Long solicitanteId) {
         Usuario solicitante = usuarioRepository.findById(solicitanteId).orElse(null);
         return adocaoService.solicitarAdocao(animalId, solicitante);
     }
