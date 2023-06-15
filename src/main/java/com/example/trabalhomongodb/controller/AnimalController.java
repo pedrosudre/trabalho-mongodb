@@ -24,6 +24,24 @@ public class AnimalController {
         return animalService.getAnimaisDisponiveis();
     }
 
+    @GetMapping("/animais/adotados/{idUsuario}")
+    public ResponseEntity<List<Animal>> listarAnimaisAdotadosPorUsuario(@PathVariable String idUsuario) {
+        List<Animal> animaisAdotados = animalService.listarAnimaisAdotadosPorUsuario(idUsuario);
+        return ResponseEntity.ok(animaisAdotados);
+    }
+
+    @GetMapping("/animais/disponiveis/{especie}")
+    public ResponseEntity<List<Animal>> listarAnimaisDisponiveisPorEspecie(@PathVariable String especie) {
+        List<Animal> animaisDisponiveis = animalService.listarAnimaisDisponiveisPorEspecie(especie);
+        return ResponseEntity.ok(animaisDisponiveis);
+    }
+
+    @GetMapping("/animais/disponiveis/por-raca/{raca}")
+    public ResponseEntity<List<Animal>> listarAnimaisDisponiveisPorRaca(@PathVariable String raca) {
+        List<Animal> animaisDisponiveis = animalService.listarAnimaisDisponiveisPorRaca(raca);
+        return ResponseEntity.ok(animaisDisponiveis);
+    }
+
     @PostMapping("/animal")
     public ResponseEntity<Animal> cadastrarAnimal(@RequestBody Animal animal) {
         Animal animalCadastrado = animalService.cadastrarAnimal(animal);

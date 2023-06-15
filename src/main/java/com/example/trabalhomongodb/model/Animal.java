@@ -27,4 +27,7 @@ public class Animal {
 
     @DBRef
     private Adocao adocaoAtual;
+
+    @DBRef
+    private Usuario usuarioAdotante;
 }
